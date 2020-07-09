@@ -240,11 +240,11 @@ body {
     text-decoration: none; }
   .results__link:hover,
   .likes__link:hover {
-    background-color: #F9F5F3;
+    background-color: #d1f2f8;
     transform: translateY(-2px); }
   .results__link--active,
   .likes__link--active {
-    background-color: #F9F5F3; }
+    background-color: #d1f2f8; }
   .results__fig,
   .likes__fig {
     flex: 0 0 5.5rem;
@@ -263,7 +263,6 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
       opacity: .4; }
     .results__fig img,
     .likes__fig img {
@@ -275,7 +274,7 @@ body {
   .results__name,
   .likes__name {
     font-size: 1.3rem;
-    color: #F59A83;
+    color: #01c0e3;
     text-transform: uppercase;
     font-weight: 600;
     margin-bottom: .3rem; }
