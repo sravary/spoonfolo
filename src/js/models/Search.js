@@ -9,7 +9,7 @@ export default class Search {
         const apiKey = '0869b77be6864886ae6ab4752cc12307';
         try {
             const res = await axios(`${proxy}https://api.spoonacular.com/recipes/complexSearch?query=${this.query}&apiKey=${apiKey}`);
-            console.log(res);
+            // console.log(res);
             this.result = res.data.results;
             // console.log(this.result);
         } catch (error) {

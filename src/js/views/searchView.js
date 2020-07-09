@@ -2,6 +2,16 @@ import { elements } from './base';
 
 export const getInput = () => elements.searchInput.value;
 
+// This function will clear the search query after submitted
+export const clearInput = () => {
+    elements.searchInput.value = '';
+};
+
+// This function will clear the results after searching for new recipe
+export const clearResults = () => {
+    elements.searchResList.innerHTML = '';
+};
+
 const renderRecipe = recipe => {
     const markup = `
         <li>
@@ -16,8 +26,8 @@ const renderRecipe = recipe => {
         </li>
     `;
     elements.searchResList.insertAdjacentHTML('beforeend', markup);
-}
+};
 
 export const renderResults = recipes => {
     recipes.forEach(renderRecipe);
-}
+};
