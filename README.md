@@ -1,0 +1,2 @@
+# Spoonfolo
+Web App that let's you search recipes, save to Shopping List and Like them for future reference by using a REST API and all bundled up with Webpack.
