@@ -14,6 +14,16 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 };
 
+
+export const highLightSelected = id => {
+    const resultsArr = Array.from(document.querySelectorAll('.results__link'));
+    resultsArr.forEach(el => {
+        el.classList.remove('results__link--active');
+    })
+    document.querySelector(`a[href="#${id}"]`).classList.add('results__link--active');
+};
+
+
 // This will limit the amount of characters in the title showing in the search view
 /*
 'Pasta with tomato and spinach'
