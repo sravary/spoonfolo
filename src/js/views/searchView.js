@@ -4,7 +4,8 @@ export const getInput = () => elements.searchInput.value;
 
 // This function will clear the search query after submitted
 export const clearInput = () => {
-    elements.searchInput.value = '';
+    elements.searchInput.value = ''; 
+    // we put this arrow function in curly braces because we do not want to return anything
 };
 
 // This function will clear the results after searching for new recipe
@@ -33,7 +34,7 @@ const limitRecipeTitle = (title, limit = 17) => {
         }, 0);
 
         // return the result
-        return `${newTitle.join(' ')}...`
+        return `${newTitle.join(' ')}...`;
     }
     return title;
 };
@@ -41,12 +42,13 @@ const limitRecipeTitle = (title, limit = 17) => {
 const renderRecipe = recipe => {
     const markup = `
         <li>
-            <a class="results__link" href="#${recipe.id}">
+            <a class="results__link" href="#${recipe.recipe_id}">
                 <figure class="results__fig">
-                    <img src="${recipe.image}" alt="${recipe.title}">
+                    <img src="${recipe.image_url}" alt="${recipe.title}">
                 </figure>
                 <div class="results__data">
                     <h4 class="results__name">${limitRecipeTitle(recipe.title)}</h4>
+                    <p class="results__author">${recipe.publisher}</p>
                 </div>
             </a>
         </li>
