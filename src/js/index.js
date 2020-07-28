@@ -2,7 +2,6 @@ import Search from './models/Search';
 import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
 import { elements, renderLoader, clearLoader } from './views/base';
-import { search } from 'core-js/fn/symbol';
 
 /** Global state of the app
  * - Search object
@@ -27,13 +26,18 @@ const controlSearch = async () => {
         searchView.clearInput();
         searchView.clearResults();
         renderLoader(elements.searchRes);
-
-        // 4. Search for recipes
-        await state.search.getResults();
-
-        // 5. Render results on UI
-        clearLoader();
-        searchView.renderResults(state.search.result);
+        
+        try {
+            // 4. Search for recipes
+            await state.search.getResults();
+    
+            // 5. Render results on UI
+            clearLoader();
+            searchView.renderResults(state.search.result);
+        } catch (err) {
+            alert('Oops! Something wrong with your search...');
+            clearLoader();
+        }
     }
 }
 
@@ -81,11 +85,12 @@ const controlRecipe = async () => {
     
             // Calculate servings and time
             state.recipe.calcTime();
+            state.recipe.calcServings();
     
             // Render the recipe
             console.log(state.recipe);
         } catch (err) {
-            alert('Error processing recipe!');
+            alert('OH NO! Error processing recipe!');
         }
     }
 };

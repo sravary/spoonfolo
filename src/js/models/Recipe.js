@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { proxy, apiKey, num } from '../config';
-
 
 export default class Recipe {
     constructor(id) {
@@ -9,18 +7,15 @@ export default class Recipe {
 
     async getRecipe() {
         try {
-            const res = await axios(`${proxy}https://api.spoonacular.com/recipes/${this.id}/information?apiKey=${apiKey}&includeNutrition=true`);
-            this.title = res.data.title;
-            this.author = res.data.sourceName;
-            this.img = res.data.image;
-            this.url = res.data.sourceUrl;
-            this.servings = res.data.servings;
-            this.ingredients = res.data.nutrition.ingredients;
-            this.calories = res.data.nutrition.caloricBreakdown;
-            this.instructions = res.data.instructions;
+            const res = await axios(`https://forkify-api.herokuapp.com/api/get?rId=${this.id}`);
+            this.title = res.data.recipe.title;
+            this.author = res.data.recipe.publisher;
+            this.img = res.data.recipe.image_url;
+            this.url = res.data.recipe.source_url;
+            this.ingredients = res.data.recipe.ingredients;
         } catch (error) {
             console.log(error);
-            alert('Something went wrong :(');  
+            alert('Something went horribly wrong :(');  
         }
     }
 
