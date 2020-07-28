@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { proxy, apiKey, num } from '../config';
 
 export default class Search {
     constructor(query) {
@@ -7,9 +6,8 @@ export default class Search {
     }
     async getResults() {
         try {
-            const res = await axios(`${proxy}https://api.spoonacular.com/recipes/complexSearch?query=${this.query}&apiKey=${apiKey}&number=${num}`);
-            // console.log(res);
-            this.result = res.data.results;
+            const res = await axios(`https://forkify-api.herokuapp.com/api/search&q${this.query}`);
+            this.result = res.data.recipes;
             // console.log(this.result);
         } catch (error) {
             alert(error);
