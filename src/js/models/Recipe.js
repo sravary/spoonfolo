@@ -38,8 +38,8 @@ export default class Recipe {
             'tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'lb'
         ];
 
-        const newIngredients = Object.keys(this.ingredients).map(el => {
-            console.log(typeof el);
+        const newIngredients = this.ingredients.map(el => {
+            
             // 1. Uniform units
             let ingredient = el.toLowerCase();
             unitsLong.forEach((unit, i) => {
@@ -59,6 +59,7 @@ export default class Recipe {
                 // Ex. 4 1/2 cups, arrCount is [4, 1/2] --> eval('4+1/2') --> 4.5
                 // Ex. 4 cups, arrCount is [4]
                 const arrCount = arrIng.slice(0, unitIndex);
+                
                 let count;
                 if (arrCount.length === 1) {
                     count = eval(arrIng[0].replace('-', '+'));
@@ -82,7 +83,7 @@ export default class Recipe {
             } else if (unitIndex === -1) {
                 // There is NO unit and NO number in 1st position
                 objIng = {
-                    count: 1,
+                    count: 1, // we put 1 as default when there is no number, ex: 'tomato sauce' => '1 tomato sauce'
                     unit: '',
                     // ingredient: ingredient can also be written like so
                     ingredient
