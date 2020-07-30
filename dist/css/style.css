@@ -38,7 +38,7 @@ body {
   @media only screen and (max-width: 68.75em) {
     .container {
       width: 100%;
-      margin: 0;
+      /* margin: 0; */
       border-radius: 0; } }
 
 .btn, .btn-small, .btn-small:link, .btn-small:visited {
@@ -492,3 +492,104 @@ body {
   .shopping__item:hover .shopping__delete {
     opacity: 1;
     visibility: visible; }
+
+
+/* Media Queries */
+@media screen and (max-width: 1060px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  .search {
+    width: 260px;
+    margin-right: 65px;
+  }
+  .search__field {
+    font-size: 1.3em;
+  }
+  .btn {
+    font-size: 1.3em;
+    padding: 0.3rem 1rem;
+  }
+  .header__logo {
+    height: 4.5rem;
+  }
+  .recipe__img {
+    width: 96%;
+    height: 85%;
+    margin-left: 7px;
+  }
+  .recipe__details {
+    padding: 0px;
+    margin-bottom: 10px;
+  }
+  .recipe__title {
+    bottom: 20px;
+    font-size: 2rem;
+  }
+  .recipe__info {
+    font-size: 1rem;
+    margin-left: 15px;
+  }
+  .recipe__love {
+    height: 3rem;
+    width: 3rem;
+    margin-left: 0;
+  }
+  .recipe__love svg {
+    width: 2rem;
+    height: 2rem;
+  }
+  .shopping {
+    padding: 3rem 2rem;
+  }
+  .results__link:link, .results__link:visited, .likes__link:link, .likes__link:visited {
+    padding: 1rem 1rem;
+  }
+  .btn-inline {
+    font-size: 10px;
+    padding: .5rem .3rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header__logo {
+    height: 3rem;
+    margin-left: 1rem;
+  }
+  .header {
+    justify-content: right;
+  }
+  .search {
+    width: 115px;
+    margin-right: 0px;
+    margin-left: 10px;
+  }
+  .search__field::-webkit-input-placeholder {
+    color: transparent;
+  }
+  .search__field {
+    width: 8rem;
+  }
+  .btn span {
+    display: none;
+  }
+  .btn > *:first-child, .btn-small > *:first-child {
+    margin-right: 0;
+  }
+  .likes__icon {
+    height: 3rem;
+    width: 3rem;
+  }
+  .likes__field {
+    padding: 0 5rem;
+  }
+  .heading-2 {
+    font-size: 1rem;
+  }
+}
